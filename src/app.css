@@ -60,7 +60,7 @@ body{
     background-color: hsl(265,100%,76%);
 }
 
-.sidebar-item .active{
+.sidebar-item.active{
     background-color: hsl(265, 100%, 46%);
 }
 
