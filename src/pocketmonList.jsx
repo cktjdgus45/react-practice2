@@ -1,9 +1,12 @@
 import React from 'react';
 
 const PocketmonList = ({ pokemon }) => {
+    console.log(pokemon)
     return (
         <>
-            pocket
+            {pokemon.map(p => (
+                <p key={p}>{p}</p>
+            ))}
         </>
     )
 }

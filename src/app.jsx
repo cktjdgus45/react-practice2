@@ -26,16 +26,23 @@ function App() {
   }, [currentPageUrl])
 
 
+  function gotoNextPage() {
+    setCurrentPageUrl(nextPageUrl);
+  }
+  function gotoPrevPage() {
+    setCurrentPageUrl(prevPageUrl);
+  }
+
   if (loading) return "loading...";
 
 
   return (
     <>
-      {
-        pokemon.map(p => (
-          <div key={p}>{p}</div>
-        ))
-      }
+      <PocketmonList pokemon={pokemon} />
+      <Pagination
+        gotoNextPage={nextPageUrl ? gotoNextPage : null}
+        gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
+      />
     </>
   );
 }

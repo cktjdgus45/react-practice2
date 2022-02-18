@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Pagination = (props) => {
+const Pagination = ({ gotoNextPage, gotoPrevPage }) => {
     return (
         <>
-            page
+            {gotoPrevPage && <button onClick={gotoPrevPage} >Prev</button>}
+            {gotoNextPage && <button onClick={gotoNextPage} >Next</button>}
         </>
     )
 }
