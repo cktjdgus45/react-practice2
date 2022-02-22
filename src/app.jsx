@@ -1,6 +1,7 @@
 import { useState, } from 'react';
 import './app.css';
 import FlashCardList from './flashcardList';
+import './app.css';
 
 const SAMPLE_FLASHCARDS = [
   {
@@ -18,17 +19,6 @@ const SAMPLE_FLASHCARDS = [
     id: 2,
     question: 'Qustion2',
     answer: 'Answer2',
-    options: [
-      'Answer1',
-      'Answer2',
-      'Answer3',
-      'Answer4'
-    ]
-  },
-  {
-    id: 3,
-    question: 'Qustion3',
-    answer: 'Answer3',
     options: [
       'Answer1',
       'Answer2',

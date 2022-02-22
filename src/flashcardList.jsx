@@ -5,6 +5,7 @@ const FlashCardList = ({ flashcards }) => {
         <div className='card-grid'>
             {
                 flashcards.map(flashcard => {
+                    console.log(flashcard)
                     return <FlashCard flashcard={flashcard} key={flashcard.id} />
                 })
             }
