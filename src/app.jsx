@@ -1,35 +1,29 @@
-import { useState, } from 'react';
-import './app.css';
+import { useState, useEffect } from 'react';
 import FlashCardList from './flashcardList';
+import axios from 'axios';
 import './app.css';
-
-const SAMPLE_FLASHCARDS = [
-  {
-    id: 1,
-    question: 'Qustion',
-    answer: 'Answer',
-    options: [
-      'Answer1',
-      'Answer2',
-      'Answer3',
-      'Answer4'
-    ]
-  },
-  {
-    id: 2,
-    question: 'Qustion2',
-    answer: 'Answer2',
-    options: [
-      'Answer1',
-      'Answer2',
-      'Answer3',
-      'Answer4'
-    ]
-  },
-]
 
 function App() {
-  const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+  const [flashcards, setFlashcards] = useState([]);
+  console.log(flashcards)
+  useEffect(() => {
+    axios
+      .get('https://opentdb.com/api.php?amount=10')
+      .then(res => {
+        setFlashcards(
+          res.data.results.map((questionItem, index) => {
+            const answer = questionItem.correct_answer;
+            const options = [...questionItem.incorrect_answers, answer];
+            return {
+              id: `${index}-${Date.now()}`,
+              questions: questionItem.question,
+              answer,
+              options: options.sort(() => Math.random() - .5)
+            }
+          })
+        )
+      });
+  }, [])
 
   return (
     <>
