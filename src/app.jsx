@@ -12,11 +12,11 @@ function App() {
       .then(res => {
         setFlashcards(
           res.data.results.map((questionItem, index) => {
-            const answer = questionItem.correct_answer;
-            const options = [...questionItem.incorrect_answers, answer];
+            const answer = decodingString(questionItem.correct_answer);
+            const options = [...questionItem.incorrect_answers.map(a => decodingString(a)), answer];
             return {
               id: `${index}-${Date.now()}`,
-              questions: questionItem.question,
+              questions: decodingString(questionItem.question),
               answer,
               options: options.sort(() => Math.random() - .5)
             }
@@ -24,6 +24,12 @@ function App() {
         )
       });
   }, [])
+
+  function decodingString(str) {
+    const textArea = document.createElement('textarea');
+    textArea.innerHTML = str;
+    return textArea.value;
+  }
 
   return (
     <>
