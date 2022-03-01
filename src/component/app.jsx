@@ -7,6 +7,7 @@ import Dashboard from './dashboard';
 import Login from './login';
 import PrivateRoute from './privateRoute';
 import ForgotPassword from './forgotPassword';
+import UpdateProfile from './updateProfile';
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
             <Routes>
               <Route path="/" element={
                 <PrivateRoute component={Dashboard} />
+              } />
+              <Route path="/update-profile" element={
+                <PrivateRoute component={UpdateProfile} />
               } />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
