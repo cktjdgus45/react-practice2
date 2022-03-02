@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/authContext';
 import { Link, useNavigate } from "react-router-dom";
+import CenterContainer from './centerContainer';
 
 const UpdateProfile = (props) => {
     const emailRef = useRef();
@@ -29,7 +30,7 @@ const UpdateProfile = (props) => {
         }
 
         Promise.all(promises)
-            .then(() => { navigate('/'); })
+            .then(() => { navigate('/user'); })
             .catch(() => {
                 setError('Failed to update account')
             }).finally(() => {
@@ -39,7 +40,7 @@ const UpdateProfile = (props) => {
         try {
             setError('');
             setLoading(true);
-            navigate('/');
+            navigate('/user');
         } catch {
             setError("Failed to create an account");
         }
@@ -47,7 +48,7 @@ const UpdateProfile = (props) => {
     }
 
     return (
-        <>
+        <CenterContainer>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Update Profile</h2>
@@ -71,9 +72,9 @@ const UpdateProfile = (props) => {
             </Card>
 
             <div className='w-100 text-center mt-2'>
-                <Link to="/">Cancel</Link>
+                <Link to="/user">Cancel</Link>
             </div>
-        </>
+        </CenterContainer>
     )
 }
 

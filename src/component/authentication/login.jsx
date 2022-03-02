@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/authContext';
 import { Link, useNavigate } from "react-router-dom";
+import CenterContainer from './centerContainer';
 
 const Login = (props) => {
     const emailRef = useRef();
@@ -20,7 +21,7 @@ const Login = (props) => {
             await login(emailRef.current.value, passwordRef.current.value)
                 .then(userCredential => {
                     if (userCredential.user.accessToken) {
-                        navigate('/');
+                        navigate('/user');
                     }
                 });
         } catch {
@@ -30,7 +31,7 @@ const Login = (props) => {
     }
 
     return (
-        <>
+        <CenterContainer>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Log In</h2>
@@ -54,7 +55,7 @@ const Login = (props) => {
             <div className='w-100 text-center mt-2'>
                 Need an account? <Link to="/signup">Sign Up</Link>
             </div>
-        </>
+        </CenterContainer>
     )
 }
 

@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { Card, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/authContext"
 import { Link, useNavigate } from "react-router-dom"
+import CenterContainer from './centerContainer';
+
 const Profile = (props) => {
     const [error, setError] = useState("")
     const { currentUser, logout } = useAuth()
@@ -16,7 +18,7 @@ const Profile = (props) => {
         }
     }
     return (
-        <>
+        <CenterContainer>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Profile</h2>
@@ -32,7 +34,7 @@ const Profile = (props) => {
                     Log Out
                 </Button>
             </div>
-        </>
+        </CenterContainer>
     )
 }
 

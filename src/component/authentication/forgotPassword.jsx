@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/authContext';
 import { Link, } from "react-router-dom";
+import CenterContainer from './centerContainer';
 
 const ForgotPassword = (props) => {
     const emailRef = useRef();
@@ -28,7 +29,7 @@ const ForgotPassword = (props) => {
     }
 
     return (
-        <>
+        <CenterContainer>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Password Reset</h2>
@@ -49,7 +50,7 @@ const ForgotPassword = (props) => {
             <div className='w-100 text-center mt-2'>
                 Need an account? <Link to="/signup">Sign Up</Link>
             </div>
-        </>
+        </CenterContainer>
     )
 }
 
