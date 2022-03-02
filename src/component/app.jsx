@@ -6,7 +6,7 @@ import { AuthProvider } from '../contexts/authContext';
 import Signup from './authentication/signup';
 import Login from './authentication/login';
 import Profile from './authentication/profile';
-import Dashboard from './dashboard';
+import Dashboard from './google-drive/dashboard';
 import '../app.css';
 
 
@@ -17,7 +17,9 @@ function App() {
       <AuthProvider>
         <Routes>
           {/* Drive */}
-          <Route exact path="/" element={Dashboard} />
+          <Route exact path="/" element={
+            <PrivateRoute component={Dashboard} />
+          } />
           {/* Profile */}
           <Route path="/user" element={
             <PrivateRoute component={Profile} />

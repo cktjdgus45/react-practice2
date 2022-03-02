@@ -21,7 +21,7 @@ const Login = (props) => {
             await login(emailRef.current.value, passwordRef.current.value)
                 .then(userCredential => {
                     if (userCredential.user.accessToken) {
-                        navigate('/user');
+                        navigate('/');
                     }
                 });
         } catch {
