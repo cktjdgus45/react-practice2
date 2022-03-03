@@ -42,3 +42,55 @@ button{
 .habit-delete{
     color: brown;
 }
+
+/* navbar */
+.nav{
+    display: flex;
+    align-items: center;
+    background-color: #FFFBE9;
+    padding: 20px;
+}
+
+.logo{
+    font-size: 2.5rem;
+    color:#019267 ;
+    margin-right: 10px;
+    padding-left: 20px;
+}
+
+.habits-count{
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    line-height: 2.3rem;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: #019267;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+/* form */
+
+.habit-form{
+    margin-top: 2rem;
+    padding-left: 5px;
+}
+
+.habit-form-input{
+    font-size: 2rem;
+    outline: none;
+    padding: 5px 10px;
+}
+
+.habit-form-button{
+    background-color: #019267;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 2rem;
+    margin-left: 3px;
+}
+
+.habit-form-button:hover{
+    opacity: 0.8;
+}
