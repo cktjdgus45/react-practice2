@@ -11,7 +11,7 @@
 }
 
 .video:hover{
-    transform: translateY(-3px);
+    transform: translateY(-1.5px);
 }
 
 .thumbnail{
