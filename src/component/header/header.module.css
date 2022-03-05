@@ -1,0 +1,46 @@
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    padding: 5px;
+}
+
+.logo{
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    flex-basis: 20%;
+}
+
+.logoIcon{
+    font-size: 2.5rem;
+    color: pink;
+}
+
+.logoTitle{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.searchForm{
+    flex-basis: 80%;
+    height: 80%;
+    box-sizing: border-box;
+}
+.searchInput,
+.searchBtn{
+    padding: 13px;
+    font-size: 1.3rem;
+}
+.searchInput{
+    width: 80%;
+    height: 100%;
+}
+
+.searchBtn{
+    height: 100%;
+    color: white;
+    background-color: burlywood;
+    margin-left: 3px;
+}
