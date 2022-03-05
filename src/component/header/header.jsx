@@ -12,7 +12,7 @@ const Header = (props) => {
                 <h3 className={styles.logoTitle}>Youtube</h3>
             </div>
             <form className={styles.searchForm}>
-                <input type="text" className={styles.searchInput} />
+                <input type="text" className={styles.searchInput} placeholder="Seach..." />
                 <button className={styles.searchBtn}>
                     <FontAwesomeIcon icon={faSearch} />
                 </button>

@@ -10,3 +10,15 @@ button,input{
 button{
     cursor: pointer;
 }
+
+.app{
+    width: 100%;
+}
+
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}

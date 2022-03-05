@@ -2,8 +2,9 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: #F999B7;
     padding: 5px;
+    margin-bottom: 2px;
 }
 
 .logo{
@@ -15,7 +16,7 @@
 
 .logoIcon{
     font-size: 2.5rem;
-    color: pink;
+    color: #F9C5D5;
 }
 
 .logoTitle{
@@ -41,6 +42,6 @@
 .searchBtn{
     height: 100%;
     color: white;
-    background-color: burlywood;
+    background-color: #F2789F;
     margin-left: 3px;
 }
