@@ -7,6 +7,7 @@ const VideoDetail = ({ video }) => {
         textArea.innerHTML = str;
         return textArea.value;
     }
+    console.log(video)
     return (
         <div className={styles.videoContainer}>
             <iframe title='test' id="ytplayer" type="text/html" width="720" height="405"
@@ -15,6 +16,7 @@ const VideoDetail = ({ video }) => {
             <div className={styles.info}>
                 <h3 className={styles.title}>{decodingString(video.title)}</h3>
                 <p className={styles.channelTitle}>{video.channelTitle}</p>
+                <p className={styles.description}>{video.description}</p>
             </div>
         </div>
     )
