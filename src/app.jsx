@@ -1,45 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './app.css';
 import Header from './component/header/header';
-import VideoCard from './component/videoCard/videoCard';
+import VideoDetail from './component/videoDetail/videoDetail';
+import VideoList from './component/videoList/videoList';
+import axios from 'axios';
 
 const App = (props) => {
-  const [videos, setVideos] = useState([
-    {
-      id: 1,
-      thumbnail: "https://i.ytimg.com/vi/gdZLi9oWNZg/mqdefault.jpg",
-      title: 'video-title1',
-      channelTitle: "HYBE LABELS",
-    },
-    {
-      id: 2,
-      thumbnail: "https://i.ytimg.com/vi/gdZLi9oWNZg/mqdefault.jpg",
-      title: 'video-title2',
-      channelTitle: "HYBE LABELS",
-    },
-    {
-      id: 3,
-      thumbnail: "https://i.ytimg.com/vi/gdZLi9oWNZg/mqdefault.jpg",
-      title: 'video-title3',
-      channelTitle: "HYBE LABELS",
-    },
-    {
-      id: 4,
-      thumbnail: "https://i.ytimg.com/vi/gdZLi9oWNZg/mqdefault.jpg",
-      title: 'video-title4',
-      channelTitle: "HYBE LABELS",
-    },
-  ]);
+  const [videos, setVideos] = useState([]);
+  const [clickedVideo, setClickedVideo] = useState(false);
+
+  useEffect(() => {
+    axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&chart=mostPopular&maxResults=25&key=${process.env.REACT_APP_APIKEY}`)
+      .then(res => setVideos(res.data.items))
+      .catch(e => console.log(e));
+  }, []);
   return (
     <div className='app'>
       <Header setVideos={setVideos} />
       <div className="wrapper">
         {
-          videos.map(video => {
-            return (
-              <VideoCard key={video.id} video={video.snippet} />
-            )
-          })
+          !clickedVideo && <VideoList videos={videos} setClickedVideo={setClickedVideo} />
+        }
+        {
+          clickedVideo &&
+          <div className='wrapper'>
+            <VideoDetail video={clickedVideo} />
+            <VideoList videos={videos} layout={'grid'} setClickedVideo={setClickedVideo} />
+          </div>
         }
       </div>
     </div>

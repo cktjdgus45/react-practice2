@@ -1,6 +1,5 @@
 .video{
     display: flex;
-    width: 49.5%;
     align-items: center;
     border-radius: 10px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -8,6 +7,14 @@
     cursor: pointer;
     transition: transform 300ms ease-in-out;
     background-color: #1A374D;
+}
+
+.grid{
+    width: 100%;
+}
+
+.flex{
+    width: 49.5%;
 }
 
 .video:hover{

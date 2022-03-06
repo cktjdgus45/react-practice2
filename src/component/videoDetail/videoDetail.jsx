@@ -1,20 +1,17 @@
 import React from 'react';
-import styles from './videoCard.module.css';
+import styles from './videoDetail.module.css';
 
-const VideoCard = ({ video, setClickedVideo, layout, videoId }) => {
-
-    function handleClick(e) {
-        setClickedVideo({ ...video, videoId });
-    }
-
+const VideoDetail = ({ video }) => {
     function decodingString(str) {
         const textArea = document.createElement('textarea');
         textArea.innerHTML = str;
         return textArea.value;
     }
     return (
-        <div className={`${styles.video} ${layout ? 'styles.grid' : 'styles.flex'}`} onClick={handleClick}>
-            <img src={video.thumbnails.default.url} alt="thumbnail" className={styles.thumbnail} />
+        <div className={styles.videoContainer}>
+            <iframe title='test' id="ytplayer" type="text/html" width="720" height="405"
+                src={`https://www.youtube.com/embed/${video.videoId}`}
+                frameBorder="0" allowFullScreen></iframe>
             <div className={styles.info}>
                 <h3 className={styles.title}>{decodingString(video.title)}</h3>
                 <p className={styles.channelTitle}>{video.channelTitle}</p>
@@ -23,4 +20,4 @@ const VideoCard = ({ video, setClickedVideo, layout, videoId }) => {
     )
 }
 
-export default VideoCard;
+export default VideoDetail;
