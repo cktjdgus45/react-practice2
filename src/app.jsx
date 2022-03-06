@@ -32,12 +32,12 @@ const App = (props) => {
   ]);
   return (
     <div className='app'>
-      <Header />
+      <Header setVideos={setVideos} />
       <div className="wrapper">
         {
           videos.map(video => {
             return (
-              <VideoCard key={video.id} video={video} />
+              <VideoCard key={video.id} video={video.snippet} />
             )
           })
         }
