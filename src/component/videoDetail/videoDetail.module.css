@@ -1,3 +1,24 @@
 .videoContainer{
     flex-basis: 80%;
 }
+
+.title{
+    color: #C1F4C5;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.channelTitle{
+    color:#FFBED8;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    letter-spacing: 2.5px;
+    font-weight: bold;
+}
+
+.description{
+    color:#FF7BA9;
+    font-size: 15px;
+    line-height: 2rem;
+    letter-spacing: 2.3px;
+}
