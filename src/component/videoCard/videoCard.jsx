@@ -12,8 +12,9 @@ const VideoCard = ({ video, setClickedVideo, layout, videoId }) => {
         textArea.innerHTML = str;
         return textArea.value;
     }
+
     return (
-        <div className={`${styles.video} ${layout ? 'styles.grid' : 'styles.flex'}`} onClick={handleClick}>
+        <div className={`${styles.video} ${layout ? `${styles.grid}` : `${styles.flex}`}`} onClick={handleClick}>
             <img src={video.thumbnails.default.url} alt="thumbnail" className={styles.thumbnail} />
             <div className={styles.info}>
                 <h3 className={styles.title}>{decodingString(video.title)}</h3>

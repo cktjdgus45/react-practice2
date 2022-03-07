@@ -17,7 +17,7 @@ const App = (props) => {
   return (
     <div className='app'>
       <Header setVideos={setVideos} />
-      <div className="wrapper">
+      <>
         {
           !clickedVideo && <VideoList videos={videos} setClickedVideo={setClickedVideo} />
         }
@@ -28,7 +28,7 @@ const App = (props) => {
             <VideoList videos={videos} layout={'grid'} setClickedVideo={setClickedVideo} />
           </div>
         }
-      </div>
+      </>
     </div>
   )
 }

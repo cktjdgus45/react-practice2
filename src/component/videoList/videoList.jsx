@@ -5,7 +5,7 @@ import styles from './videoList.module.css';
 const VideoList = ({ videos, setClickedVideo, layout }) => {
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.list}>
             {
                 videos.map(video => {
                     return (

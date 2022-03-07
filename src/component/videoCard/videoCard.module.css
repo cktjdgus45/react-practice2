@@ -7,14 +7,16 @@
     cursor: pointer;
     transition: transform 300ms ease-in-out;
     background-color: #1A374D;
+    width: 49.5%;
+    justify-content: center;
 }
 
 .grid{
-    width: 100%;
+    flex-basis: 100%;
 }
 
 .flex{
-    width: 49.5%;
+    flex-basis: 49.5%;
 }
 
 .video:hover{
