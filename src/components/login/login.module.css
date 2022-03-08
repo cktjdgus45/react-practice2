@@ -1,0 +1,32 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.mainboard{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 25px 10px;
+}
+
+.title{
+    font-size: 25px;
+    font-weight: revert;
+    margin-bottom: 30px;
+}
+
+.button{
+    border: 2px solid #534340;
+    border-radius: 30px;
+    padding: 10px 140px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.button:hover{
+    color: #fff;
+    background-color: #534340;
+}
