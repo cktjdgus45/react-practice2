@@ -23,8 +23,13 @@
     transform: translateY(-1.5px);
 }
 
+.thumbnail{
+    flex-basis: 40%;
+}
+
 .info{
-    width: auto;
+    flex-basis: 60%;
+    /* width: auto; */
     padding-left: 15px;
 }
 
