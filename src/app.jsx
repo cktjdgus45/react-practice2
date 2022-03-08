@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, Link, } from "react-router-dom";
 import './app.css';
 import Login from './components/login/login';
-const App = (props) => {
+import Dashboard from './components/dashboard/dashboard';
 
+const App = (props) => {
   return (
-    <>
-      <Login />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route path="/user" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
