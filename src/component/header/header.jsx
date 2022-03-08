@@ -5,7 +5,7 @@ import styles from './header.module.css';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 
-const Header = ({ setVideos }) => {
+const Header = ({ setVideos, setClickedVideo }) => {
     const [query, setQuery] = useState('');
     function handleChange(e) {
         const value = e.target.value;
@@ -17,9 +17,12 @@ const Header = ({ setVideos }) => {
             .then(res => setVideos(res.data.items))
             .catch(e => console.log(e));
     }
+    function handleClick() {
+        setClickedVideo(false);
+    }
     return (
         <header className={styles.header}>
-            <div className={styles.logo}>
+            <div className={styles.logo} onClick={handleClick}>
                 <FontAwesomeIcon className={styles.logoIcon} icon={faYoutube} />
                 <h3 className={styles.logoTitle}>Youtube</h3>
             </div>

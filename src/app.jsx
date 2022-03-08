@@ -16,7 +16,7 @@ const App = (props) => {
   }, []);
   return (
     <div className='app'>
-      <Header setVideos={setVideos} />
+      <Header setVideos={setVideos} setClickedVideo={setClickedVideo} />
       <>
         {
           !clickedVideo && <VideoList videos={videos} setClickedVideo={setClickedVideo} />
