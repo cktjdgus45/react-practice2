@@ -1,5 +1,11 @@
 .videoContainer{
-    flex-basis: 80%;
+    flex-basis: 200%;
+    width: 100%;
+}
+
+.iframe{
+    width: 100%;
+    height: 500px;
 }
 
 .title{

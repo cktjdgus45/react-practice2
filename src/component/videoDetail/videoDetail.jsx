@@ -9,9 +9,15 @@ const VideoDetail = ({ video }) => {
     }
     return (
         <div className={styles.videoContainer}>
-            <iframe title='test' id="ytplayer" type="text/html" width="720" height="405"
+            <iframe
+                title='test'
+                id="ytplayer"
+                type="text/html"
+                className={styles.iframe}
                 src={`https://www.youtube.com/embed/${video.videoId}`}
-                frameBorder="0" allowFullScreen></iframe>
+                frameBorder="0"
+                allowFullScreen>
+            </iframe>
             <div className={styles.info}>
                 <h3 className={styles.title}>{decodingString(video.title)}</h3>
                 <p className={styles.channelTitle}>{video.channelTitle}</p>
