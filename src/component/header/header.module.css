@@ -6,7 +6,11 @@
     padding: 5px;
     margin-bottom: 2px;
 }
-
+@media only screen and (max-width: 1300px) {
+    .header {
+        flex-direction: column;
+    }
+  }
 .logo{
     display: flex;
     font-size: 15px;
