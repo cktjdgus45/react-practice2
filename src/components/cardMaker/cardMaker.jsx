@@ -10,7 +10,7 @@ const CardMaker = ({ cards, setCards }) => {
             {
                 cards.map(card => {
                     return (
-                        <CardEditForm key={card.name} card={card} setCards={setCards} />
+                        <CardEditForm key={card.id} card={card} setCards={setCards} />
                     )
                 })
             }

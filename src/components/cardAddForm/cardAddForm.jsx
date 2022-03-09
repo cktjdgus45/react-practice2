@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import styles from './cardAddForm.module.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const CardAddForm = ({ setCards }) => {
     const nameRef = useRef();
@@ -9,21 +10,30 @@ const CardAddForm = ({ setCards }) => {
     const emailRef = useRef();
     const textareaRef = useRef();
     const fileRef = useRef();
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        const card = {
-            name: nameRef.current.value,
-            company: companyRef.current.value,
-            title: titleRef.current.value,
-            email: emailRef.current.value,
-            message: textareaRef.current.value,
-            tema: temaRef.current.value,
-            profile: fileRef.current.value,
-        }
-        setCards(prev => {
-            const updated = [...prev, card];
+        await setCards(prev => {
+            const cards = [...prev];
+            const card = {
+                id: uuidv4(),
+                name: nameRef.current.value,
+                company: companyRef.current.value,
+                title: titleRef.current.value,
+                email: emailRef.current.value,
+                message: textareaRef.current.value,
+                tema: temaRef.current.value,
+                profile: fileRef.current.value,
+            }
+            const updated = [...cards, card];
             return updated;
         })
+        nameRef.current.value = '';
+        companyRef.current.value = '';
+        temaRef.current.value = '';
+        titleRef.current.value = '';
+        emailRef.current.value = '';
+        textareaRef.current.value = '';
+        fileRef.current.value = '';
     }
     return (
         <form action="" className={styles.form} onSubmit={handleSubmit}>
