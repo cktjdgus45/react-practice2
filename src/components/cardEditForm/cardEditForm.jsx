@@ -13,6 +13,18 @@ const CardEditForm = ({ card, setCards }) => {
             return [...cards];
         })
     }
+    function handleDelete() {
+        setCards(prev => {
+            const cards = [...prev];
+            const index = cards.indexOf(card);
+            const targetCard = cards[index];
+            const updated = cards.filter(card => {
+                return card.id !== targetCard.id;
+            })
+            console.log(updated)
+            return updated;
+        })
+    }
     return (
         <form action="" className={styles.form}>
             <input name='name' onChange={handleChange} value={card.name} type="text" className={styles.name} placeholder='Name' />
@@ -26,7 +38,7 @@ const CardEditForm = ({ card, setCards }) => {
             <input name='email' onChange={handleChange} value={card.email} type="text" className={styles.email} placeholder='Email' />
             <input name='message' onChange={handleChange} value={card.message} type="textarea" className={styles.textarea} placeholder='Message' />
             <input name='profile' type="file" className={`${styles.button} ${styles.file}`}></input>
-            <button className={`${styles.button} ${styles.add}`}>Delete</button>
+            <button onClick={handleDelete} className={`${styles.button} ${styles.add}`}>Delete</button>
         </form>
     )
 }

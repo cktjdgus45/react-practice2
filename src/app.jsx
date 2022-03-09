@@ -5,9 +5,11 @@ import Login from './components/login/login';
 import Dashboard from './components/dashboard/dashboard';
 
 const App = (props) => {
+
   const [cards, setCards] = useState(
     [
       {
+        id: 1,
         name: 'name',
         company: 'kakao',
         title: 'developer',
@@ -17,6 +19,7 @@ const App = (props) => {
         profile: '/images/logo.png'
       },
       {
+        id: 2,
         name: 'name2',
         company: 'kakao2',
         title: 'developer2',
@@ -26,6 +29,7 @@ const App = (props) => {
         profile: '/images/logo.png'
       },
       {
+        id: 3,
         name: 'name3',
         company: 'kakao3',
         title: 'developer3',
