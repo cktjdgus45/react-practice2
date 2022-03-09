@@ -1,47 +1,21 @@
 import React, { useRef } from 'react';
+import CardAddForm from '../cardAddForm/cardAddForm';
+import CardEditForm from '../cardEditForm/cardEditForm';
 import styles from './cardMaker.module.css';
 
-const CardMaker = ({ setCards }) => {
-    const nameRef = useRef();
-    const companyRef = useRef();
-    const temaRef = useRef();
-    const titleRef = useRef();
-    const emailRef = useRef();
-    const textareaRef = useRef();
-    const fileRef = useRef();
-    function handleSubmit(e) {
-        e.preventDefault();
-        const card = {
-            name: nameRef.current.value,
-            company: companyRef.current.value,
-            title: titleRef.current.value,
-            email: emailRef.current.value,
-            message: textareaRef.current.value,
-            tema: temaRef.current.value,
-            profile: fileRef.current.value,
-        }
-        setCards(prev => {
-            const updated = [...prev, card];
-            return updated;
-        })
-    }
+const CardMaker = ({ cards, setCards }) => {
+
     return (
         <div className={styles.container}>
+            {
+                cards.map(card => {
+                    return (
+                        <CardEditForm key={card.name} card={card} setCards={setCards} />
+                    )
+                })
+            }
             <h1 className={styles.sectionTitle}>Card Maker</h1>
-            <form action="" className={styles.form} onSubmit={handleSubmit}>
-                <input ref={nameRef} type="text" className={styles.name} placeholder='Name' />
-                <input ref={companyRef} type="text" className={styles.company} placeholder='Company' />
-                <select ref={temaRef} className={styles.tema}>
-                    <option value="Light">Light</option>
-                    <option value="Dark">Dark</option>
-                    <option value="Colorful">Colorful</option>
-                </select>
-                <input ref={titleRef} type="text" className={styles.title} placeholder='Title' />
-                <input ref={emailRef} type="text" className={styles.email} placeholder='Email' />
-                <input ref={textareaRef} type="textarea" className={styles.textarea} placeholder='Message' />
-                <input ref={fileRef} type="file" className={`${styles.button} ${styles.file}`}></input>
-                <button className={`${styles.button} ${styles.add}`}>Add</button>
-            </form>
+            <CardAddForm setCards={setCards} />
         </div>
     )
 }

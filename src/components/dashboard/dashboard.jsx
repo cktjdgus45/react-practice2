@@ -8,13 +8,12 @@ import Footer from '../footer/footer';
 
 const Dashboard = ({ cards, setCards }) => {
     const location = useLocation();
-    console.log(location.state)
     const uid = location.state.uid;
     return (
         <div className={styles.dashboard}>
             <Header uid={uid} />
             <div className={styles.container}>
-                <CardMaker setCards={setCards} />
+                <CardMaker cards={cards} setCards={setCards} />
                 <CardPreview cards={cards} />
             </div>
             <Footer />

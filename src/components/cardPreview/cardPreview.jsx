@@ -10,7 +10,7 @@ const CardPreview = ({ cards }) => {
                 {
                     cards.map(card => {
                         return (
-                            <Card card={card} />
+                            <Card key={card.name} card={card} />
                         )
                     })
                 }
