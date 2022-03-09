@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './cardMaker.module.css';
 
-const CardMaker = (props) => {
+const CardMaker = ({ setCards }) => {
     const nameRef = useRef();
     const companyRef = useRef();
     const temaRef = useRef();
@@ -11,13 +11,19 @@ const CardMaker = (props) => {
     const fileRef = useRef();
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(companyRef.current.value)
-        console.log(temaRef.current.value)
-        console.log(emailRef.current.value)
-        console.log(nameRef.current.value)
-        console.log(textareaRef.current.value)
-        console.log(titleRef.current.value)
-        console.log(fileRef.current.value)
+        const card = {
+            name: nameRef.current.value,
+            company: companyRef.current.value,
+            title: titleRef.current.value,
+            email: emailRef.current.value,
+            message: textareaRef.current.value,
+            tema: temaRef.current.value,
+            profile: fileRef.current.value,
+        }
+        setCards(prev => {
+            const updated = [...prev, card];
+            return updated;
+        })
     }
     return (
         <div className={styles.container}>
