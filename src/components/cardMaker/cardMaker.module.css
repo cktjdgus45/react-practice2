@@ -1,0 +1,49 @@
+.container{
+    flex-basis: 50%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sectionTitle{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name,.company,.tema{
+    width: 33.3%;
+    padding: 5px;
+}
+.title,.email{
+    width: 50%;
+    padding: 3px;
+}
+
+.textarea{
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.button{
+    width: 50%;
+    border: 1px solid black;
+    padding: 5px 15px;
+}
+
+.file{
+    background-color: #CC9544;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.add{
+    background-color: #603601;
+    color: #fff;
+    font-weight: bolder;
+}
