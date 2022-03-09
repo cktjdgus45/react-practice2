@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut } from "firebase/auth";
 
 class Auth {
     constructor() {
@@ -20,6 +20,11 @@ class Auth {
     }
     async socialLogin() {
         return await signInWithPopup(this.auth, this.provider)
+    }
+    logout() {
+        signOut(this.auth)
+            .then(() => console.log('logout success!'))
+            .catch((e) => console.log(e));
     }
 }
 
