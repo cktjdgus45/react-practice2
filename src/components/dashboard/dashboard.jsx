@@ -6,7 +6,7 @@ import styles from './dashboard.module.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 
-const Dashboard = (props) => {
+const Dashboard = ({ cards, setCards }) => {
     const location = useLocation();
     console.log(location.state)
     const uid = location.state.uid;
@@ -14,8 +14,8 @@ const Dashboard = (props) => {
         <div className={styles.dashboard}>
             <Header uid={uid} />
             <div className={styles.container}>
-                <CardMaker />
-                <CardPreview />
+                <CardMaker setCards={setCards} />
+                <CardPreview cards={cards} />
             </div>
             <Footer />
         </div>

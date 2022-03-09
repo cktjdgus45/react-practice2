@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-right: 1px solid gray;
+    padding: 10px;
 }
 
 .sectionTitle{
@@ -30,7 +32,7 @@
     padding: 5px 10px;
 }
 
-.button{
+.button,input[type="file"]{
     width: 50%;
     border: 1px solid black;
     padding: 5px 15px;

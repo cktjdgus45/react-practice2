@@ -1,0 +1,25 @@
+.card{
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    border: 1px solid gray;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.profile{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.info{
+    margin-left: 15px;
+}
+
+.company{
+    border-bottom: 1px solid yellow;
+}
