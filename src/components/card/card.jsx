@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './card.module.css';
 
 const Card = ({ card }) => {
+    const cardRef = useRef();
+    useEffect(() => {
+        const { current } = cardRef;
+        const tema = current.dataset.tema;
+        switch (tema) {
+            case 'Dark':
+                current.classList.add(`${styles.dark}`);
+                return;
+            case 'Light':
+                current.classList.add(`${styles.light}`);
+                return;
+            case 'Colorful':
+                current.classList.add(`${styles.colorful}`);
+                return;
+
+            default:
+                throw Error('Unexpected tema');
+        }
+    }, [card])
     return (
-        <div className={styles.card}>
+        <div data-tema={card.tema} className={styles.card} ref={cardRef}>
             <div className={styles.imgBox}>
                 <img className={styles.profile} src={card.profile} alt="profile" />
             </div>

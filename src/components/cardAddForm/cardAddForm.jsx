@@ -47,7 +47,7 @@ const CardAddForm = ({ setCards }) => {
             <input ref={titleRef} type="text" className={styles.title} placeholder='Title' />
             <input ref={emailRef} type="text" className={styles.email} placeholder='Email' />
             <input ref={textareaRef} type="textarea" className={styles.textarea} placeholder='Message' />
-            <input ref={fileRef} type="file" className={`${styles.button} ${styles.file}`}></input>
+            <input ref={fileRef} accept='image/*' type="file" className={`${styles.button} ${styles.file}`}></input>
             <button className={`${styles.button} ${styles.add}`}>Add</button>
         </form>
     )

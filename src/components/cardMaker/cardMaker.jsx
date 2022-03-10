@@ -7,6 +7,7 @@ const CardMaker = ({ cards, setCards }) => {
 
     return (
         <div className={styles.container}>
+            <h1 className={styles.sectionTitle}>Card Maker</h1>
             {
                 cards.map(card => {
                     return (
@@ -14,7 +15,6 @@ const CardMaker = ({ cards, setCards }) => {
                     )
                 })
             }
-            <h1 className={styles.sectionTitle}>Card Maker</h1>
             <CardAddForm setCards={setCards} />
         </div>
     )

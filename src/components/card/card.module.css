@@ -23,3 +23,15 @@
 .company{
     border-bottom: 1px solid yellow;
 }
+
+.light{
+    background-color: #fff;
+}
+.dark{
+ background-color: #1B1A17;
+ color: #fff;
+}
+.colorful{
+    color: #fff;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(141,56,168,1) 4%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
