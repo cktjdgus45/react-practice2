@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './cardEditForm.module.css';
 
-const CardEditForm = ({ card, setCards }) => {
+const CardEditForm = ({ card, setCards, remove }) => {
     function handleChange(e) {
         setCards(prev => {
             const property = e.target.name;
@@ -14,6 +14,7 @@ const CardEditForm = ({ card, setCards }) => {
         })
     }
     function handleDelete() {
+        remove('cards/', card.id);
         setCards(prev => {
             const cards = [...prev];
             const index = cards.indexOf(card);

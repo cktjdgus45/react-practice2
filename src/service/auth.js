@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 
 class Auth {
     constructor() {
@@ -25,6 +25,16 @@ class Auth {
         signOut(this.auth)
             .then(() => console.log('logout success!'))
             .catch((e) => console.log(e));
+    }
+    observeAuthState() {
+        onAuthStateChanged(this.auth, (user) => {
+            if (user) {
+                console.log(user);
+                return user;
+            } else {
+                console.log('user signed out!')
+            }
+        })
     }
 }
 

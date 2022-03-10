@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import styles from './cardAddForm.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
-const CardAddForm = ({ setCards }) => {
+const CardAddForm = ({ setCards, write, card }) => {
     const nameRef = useRef();
     const companyRef = useRef();
     const temaRef = useRef();
@@ -12,24 +12,32 @@ const CardAddForm = ({ setCards }) => {
     const fileRef = useRef();
     async function handleSubmit(e) {
         e.preventDefault();
+        const id = uuidv4();
+        const name = nameRef.current.value;
+        const company = companyRef.current.value;
+        const title = titleRef.current.value;
+        const email = emailRef.current.value;
+        const message = textareaRef.current.value;
+        const tema = temaRef.current.value;
+        const profile = fileRef.current.value;
+        write(id, name, company, title, email, message, tema, profile);
         await setCards(prev => {
             const cards = [...prev];
             const card = {
-                id: uuidv4(),
-                name: nameRef.current.value,
-                company: companyRef.current.value,
-                title: titleRef.current.value,
-                email: emailRef.current.value,
-                message: textareaRef.current.value,
-                tema: temaRef.current.value,
-                profile: fileRef.current.value,
+                id,
+                name,
+                company,
+                title,
+                email,
+                message,
+                tema,
+                profile,
             }
             const updated = [...cards, card];
             return updated;
         })
         nameRef.current.value = '';
         companyRef.current.value = '';
-        temaRef.current.value = '';
         titleRef.current.value = '';
         emailRef.current.value = '';
         textareaRef.current.value = '';
@@ -39,7 +47,7 @@ const CardAddForm = ({ setCards }) => {
         <form action="" className={styles.form} onSubmit={handleSubmit}>
             <input ref={nameRef} type="text" className={styles.name} placeholder='Name' />
             <input ref={companyRef} type="text" className={styles.company} placeholder='Company' />
-            <select ref={temaRef} className={styles.tema}>
+            <select ref={temaRef} className={styles.tema} >
                 <option value="Light">Light</option>
                 <option value="Dark">Dark</option>
                 <option value="Colorful">Colorful</option>

@@ -18,7 +18,8 @@ const Card = ({ card }) => {
                 return;
 
             default:
-                throw Error('Unexpected tema');
+                current.classList.add(`${styles.light}`);
+                return;
         }
     }, [card])
     return (
