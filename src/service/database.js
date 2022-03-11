@@ -1,4 +1,4 @@
-import { getDatabase, ref, set, remove, get, child } from "firebase/database";
+import { getDatabase, ref, set, get, child } from "firebase/database";
 
 class DB {
     constructor() {
@@ -23,13 +23,15 @@ class DB {
             profile,
         });
     }
-    readData(url, setCards) {
+    readData(url, setData) {
+        setData = setData || {};
         const dbRef = ref(getDatabase());
         get(child(dbRef, url)).then((snapshot) => {
             if (snapshot.exists()) {
-                setCards(Object.values(snapshot.val()));
+                setData && setData(Object.values(snapshot.val()));
             } else {
                 console.log("No data available");
+                setData('');
             }
         }).catch((error) => {
             console.error(error);
@@ -37,7 +39,7 @@ class DB {
     }
 
     removeData(url, id) {
-        set(ref(this.db, 'cards/' + id),
+        set(ref(this.db, url + id),
             null
         );
     }

@@ -1,9 +1,11 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import DB from './database';
 
 class Auth {
     constructor() {
         this.auth = getAuth();
         this.provider = '';
+        this.db = new DB();
     }
     login(text) {
         switch (text) {
@@ -21,18 +23,18 @@ class Auth {
     async socialLogin() {
         return await signInWithPopup(this.auth, this.provider)
     }
-    logout() {
+    logout(uid) {
         signOut(this.auth)
-            .then(() => console.log('logout success!'))
+            .then(() => this.db.removeData('users/', uid))
             .catch((e) => console.log(e));
     }
     observeAuthState() {
         onAuthStateChanged(this.auth, (user) => {
             if (user) {
-                console.log(user);
-                return user;
+                console.log('user signed in!');
+                this.db.writeUserData(user.uid);
             } else {
-                console.log('user signed out!')
+                console.log('user signed out!');
             }
         })
     }

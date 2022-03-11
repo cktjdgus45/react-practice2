@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, } from 'react';
 import styles from './login.module.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Auth from '../../service/auth';
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ user }) => {
     const navigate = useNavigate();
+    useEffect(() => {
+        user &&
+            navigate("/user", {
+                state: {
+                    uid: user[0].uid
+                }
+            });
+    })
+
     async function handleClick(e) {
         const socialText = e.currentTarget.innerText; //"Google"
         const auth = new Auth();

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Header = ({ uid }) => {
     const navigate = useNavigate();
     function handleClick() {
-        new Auth().logout();
+        new Auth().logout(uid);
         navigate("/");
     }
     return (
